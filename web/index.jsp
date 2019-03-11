@@ -12,5 +12,10 @@
 </head>
 <body>
 hello
+
+<%
+        response.sendRedirect("www.baidu.com");
+
+%>
 </body>
 </html>
