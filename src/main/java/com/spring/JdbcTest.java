@@ -2,7 +2,6 @@ package com.spring;
 
 import com.spring.dao.UserDao;
 import com.spring.domain.User;
-import com.spring.proxy.UserService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class JdbcTest {
