@@ -6,16 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
-hello
+<script src ="js/jquery-3.3.1.js"></script>
 
 <%
-        response.sendRedirect("www.baidu.com");
+      out.write("123");
+      System.out.println("aaa");
 
 %>
-</body>
-</html>

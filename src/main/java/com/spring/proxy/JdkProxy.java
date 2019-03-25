@@ -23,9 +23,6 @@ public class JdkProxy{
                   myAspect.pre();
                   Object obj2 = method.invoke(target, args);
                   myAspect.after();
-
-
-
                 return obj2;
             }
         });
@@ -35,7 +32,22 @@ public class JdkProxy{
     }
 
 
+    public static void main(String[] args) throws Throwable {
 
+
+        InvocationHandler handler = new InvocationHandler(){
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                Object obj = method.invoke(proxy, args);
+                return obj;
+            }
+        };
+
+        Object obj = new Object();
+        Object hashCode = handler.invoke(obj, obj.getClass().getMethod("hashCode"), null);
+        System.out.println("handler--->"+hashCode+"object--->"+obj.hashCode());
+
+
+    }
 
 
 }

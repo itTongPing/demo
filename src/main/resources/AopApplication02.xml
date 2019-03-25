@@ -12,23 +12,27 @@
 
 
     <!--目标-->
-        <bean id="userService" class = "com.spring.proxy.UserServiceImpl"></bean>
-<!--通知-->
+    <bean id="userService" class = "com.spring.proxy.UserServiceImpl"></bean>
+    <!--通知-->
     <bean id = "myAspect" class = "com.spring.aop.aop_01.MyAspect"></bean>
 
 
+<!--
 
     <bean id="proxyId" class = "org.springframework.aop.framework.ProxyFactoryBean">
-<!--如果有接口需要填写接口的信息-->
-           <property name="interfaces" value="com.spring.proxy.UserService"></property>
-           <property name="target" ref="userService"></property>
-           
-           <property name="interceptorNames" value="myAspect"></property>
-           
 
-       </bean>
+        <property name="interfaces" value="com.spring.proxy.UserService"></property>
+        <property name="target" ref="userService"></property>
+
+        <property name="interceptorNames" value="myAspect"></property>
 
 
+    </bean>
+-->
 
+    <aop:config>
+        <aop:pointcut id="pointcutid" expression="execution(* com.spring.proxy.UserServiceImpl.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="myAspect" pointcut-ref="pointcutid"></aop:advisor>
+    </aop:config>
 
 </beans>

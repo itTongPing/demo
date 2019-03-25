@@ -12,7 +12,7 @@ public class TestAnno {
         ApplicationContext context = new ClassPathXmlApplicationContext("annotation.xml");
         UserService userService = (UserService) context.getBean("userService");
 
-        System.out.print(userService.getUserDao().getUser());
+        System.out.print(userService.getUserDao());
 
 
 
