@@ -28,9 +28,20 @@ public class OrdArray {
             }
         }*/
         //使用二分查找的方式找到插入的位置
+
+
+
+
         int start = 0;
         int end = nElements - 1;
         int currIndex = 0;
+
+        if(arr[start]>value){
+            i= 0;
+        }
+        if(arr[end]<value){
+            i = nElements;
+        }
 
         while (start<=end) {
             currIndex = (start+end)/2;
