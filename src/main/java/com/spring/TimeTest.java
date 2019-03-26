@@ -1,5 +1,7 @@
 package com.spring;
 
+import java.applet.Applet;
+
 public class TimeTest
 {
 
@@ -8,17 +10,9 @@ public class TimeTest
 
 
 
-        String s = "abcdefg";
 
-        long l = System.currentTimeMillis();
-        for (int i  =0 ;i<50000000;i++){
+            Applet applet = new Applet();
 
-           // int s2 = s.indexOf('g');
-
-
-
-        }
-        System.out.println(System.currentTimeMillis()-l);
 
     }
 }

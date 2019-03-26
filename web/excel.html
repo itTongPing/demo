@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+
+
+
+</body>
+
+<script>
+
+
+    function exportFun() {//导出
+        var url = "http://localhost:8080/spring_war_exploded/Myservlet/excel"
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true); // 也可以使用POST方式，根据接口
+        xhr.responseType = "blob"; // 返回类型blob
+        // 定义请求完成的处理函数，请求前也可以增加加载框/禁用下载按钮逻辑
+        xhr.onload = function () {
+            console.log(xhr);
+            // 请求完成
+            if (this.status === 200) {
+                // 返回200
+                var blob = this.response;
+                console.log(blob);
+                var reader = new FileReader();
+                console.log(reader);
+                reader.readAsDataURL(blob); // 转换为base64，可以直接放入a表情href
+                reader.onload = function (e) {
+                    // 转换完成，创建一个a标签用于下载
+                    console.log(e);
+                    var a = document.createElement('a');
+                    a.download = 'data.xls';
+                    a.href = e.target.result;
+
+                    $("body").append(a); // 修复firefox中无法触发click
+                    a.click();
+                    $(a).remove();
+                };
+
+                // var content = xhr.response;//如：Blob(5632) {size: 5632, type: "application/json"}
+                // var a = document.createElement('a');
+                // a.innerHTML='点我';
+                // a.download = 'data.xlsx';
+                // a.style.display = 'none';
+                // var blob = new Blob([content]);
+                // a.href = URL.createObjectURL(blob);
+                // document.body.appendChild(a);
+                // a.click();
+                // document.body.removeChild(a);
+            }
+        };
+        // 发送ajax请求
+        xhr.send();
+    }
+</script>
+</html>
