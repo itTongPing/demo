@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Required;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.lang.reflect.Field;
+
 @Component
 public class User
 {
@@ -35,5 +37,12 @@ public class User
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public static void main(String[] args) {
+        Field[] fields = User.class.getFields();
+        System.out.println(fields.length);
+
     }
 }

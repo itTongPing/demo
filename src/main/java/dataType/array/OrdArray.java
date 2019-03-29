@@ -28,7 +28,12 @@ public class OrdArray {
             }
         }*/
         //使用二分查找的方式找到插入的位置
-
+        //如果没有数据
+        if(nElements==0){
+            arr[0] = value;
+            nElements++;
+            return;
+        }
 
 
 
@@ -36,12 +41,6 @@ public class OrdArray {
         int end = nElements - 1;
         int currIndex = 0;
 
-        if(arr[start]>value){
-            i= 0;
-        }
-        if(arr[end]<value){
-            i = nElements;
-        }
 
         while (start<=end) {
             currIndex = (start+end)/2;
@@ -51,8 +50,9 @@ public class OrdArray {
             }else if(arr[currIndex]<value){
                 start = currIndex+1;
             }else{
-                //当arr[currIndx] == value;时
+                //当arr[currIndx] == value;时同时结束循环
                 i = currIndex;
+                break;
             }
         }
         //查找完毕,value的值应该插入在currIndex的两边
@@ -153,9 +153,13 @@ public class OrdArray {
 
         ordArray.insert(10);
         ordArray.insert(9);
+        ordArray.insert(9);
+        ordArray.insert(9);
         ordArray.insert(7);
         ordArray.insert(6);
+
         ordArray.insert(5);
+        ordArray.insert(6);
         ordArray.insert(24);
 
         //ordArray.delete(2);

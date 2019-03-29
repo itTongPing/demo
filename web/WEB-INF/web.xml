@@ -17,4 +17,17 @@
         <servlet-name>excelServlet</servlet-name>
         <url-pattern>/Myservlet/excel</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>excelp</servlet-name>
+        <servlet-class>servlet.ExcelPro</servlet-class>
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>excelp</servlet-name>
+        <url-pattern>/Myservlet/excelpro</url-pattern>
+    </servlet-mapping>
+
 </web-app>
