@@ -16,6 +16,7 @@
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Maven: org.springframework:spring:2.5.1" />
           <element id="library" level="project" name="Maven: org.apache.poi:poi:3.17" />
+          <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="spring/web/Web" />
